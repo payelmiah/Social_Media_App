@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:social_media_app/model/user.dart';
-
 import '../model/post.dart';
 
 class Homepage extends StatefulWidget {
@@ -35,87 +34,94 @@ class _HomepageState extends State<Homepage> {
         ],
       ),
 
-      body: Column(
-        children: <Widget> [
-          Container(
-            height: 200,
-            //color: Colors.white,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: favorite.length,
-              itemBuilder: (BuildContext context, int index){
-                return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-                  height: 100,
-                  width: 80,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color(0xFF4DB6AC),
-                   /* boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        offset: Offset(0.0,2.0),
-                        blurRadius: 6.0,
-                      ),
-
-                    ], */
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                            width: 3.0,
-                            //color: Color(0xFF4DB6AC),
-                            color: Colors.white.withOpacity(0.5),
-                          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget> [
+            Container(
+              height: 200,
+              //color: Colors.white,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: favorite.length,
+                itemBuilder: (BuildContext context, int index){
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xFF4DB6AC),
+                     /* boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          offset: Offset(0.0,2.0),
+                          blurRadius: 6.0,
                         ),
-                        child: Container(
-                          margin: EdgeInsets.all(3.0),
+
+                      ], */
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          height: 60,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                favorite[index].imageUrl),
-                                fit: BoxFit.cover,
+                            borderRadius: BorderRadius.circular(10.0),
+                            border: Border.all(
+                              width: 3.0,
+                              //color: Color(0xFF4DB6AC),
+                              color: Colors.white.withOpacity(0.5),
+                            ),
+                          ),
+                          child: Container(
+                            margin: EdgeInsets.all(3.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  favorite[index].imageUrl),
+                                  fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
-                      ),
 
-                      Container(
-                        margin: EdgeInsets.only(bottom: 5),
-                        height: 70,
-                        child: RotatedBox(
-                          quarterTurns: 3,
-                          child: Text(favorite[index].name,
-                            style: TextStyle(fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                              color: Colors.white70,
+                        Container(
+                          margin: EdgeInsets.only(bottom: 5),
+                          height: 70,
+                          child: RotatedBox(
+                            quarterTurns: 3,
+                            child: Text(favorite[index].name,
+                              style: TextStyle(fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                                color: Colors.white70,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Divider(
-                        color: Colors.white.withOpacity(0.5),
-                        height: 10.0,
-                        indent: 5.0,
-                        endIndent: 5.0,
-                      ),
+                        Divider(
+                          color: Colors.white.withOpacity(0.5),
+                          height: 10.0,
+                          indent: 5.0,
+                          endIndent: 5.0,
+                        ),
 
-                    ],
-                  ),
+                      ],
+                    ),
 
-                );
+                  );
 
-              },
+                },
+              ),
             ),
-          ),
-          _buildPost(0),
-        ],
+            _buildPost(0),
+            _buildPost(1),
+            _buildPost(2),
+            _buildPost(3),
+            _buildPost(4),
+            _buildPost(5),
+          ],
+        ),
       ),
     );
   }
@@ -271,9 +277,13 @@ _buildPost(int index){
         Container(
           height: 70,
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               posts[index].description,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.white54,
+              ),
             ),
           ),
 
