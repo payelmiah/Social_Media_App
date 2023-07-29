@@ -19,7 +19,7 @@ class _HomepageState extends State<Homepage> {
         backgroundColor: Color(0xFF26A69A),
         elevation: 0,
         title: Text(
-          'TIMELINE',
+          'SOCIAL',
           style: TextStyle(
             fontSize: 25,
           ),
