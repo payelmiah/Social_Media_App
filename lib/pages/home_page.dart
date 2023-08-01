@@ -10,6 +10,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  int selectedpage =0;
+
   @override
   Widget build(BuildContext context) {
 
@@ -123,11 +125,13 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
+
+
     );
   }
 }
 
-_buildPost(int index){
+_buildPost(int index){ //building post
   return Container(
     margin: EdgeInsets.all(15),
     height: 500,
