@@ -6,6 +6,7 @@ void main(){
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(const MaterialApp(
     title:  'Social Media',
+    //need to specified primary theme
     debugShowCheckedModeBanner: false,
     home: Homepage(),
   ));
